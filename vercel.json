@@ -1,4 +1,9 @@
 {
+  "framework": "express",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "rewrites": [
+    { "source": "/privacy", "destination": "/index.html" },
+    { "source": "/terms", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" }
+  ]
 }
