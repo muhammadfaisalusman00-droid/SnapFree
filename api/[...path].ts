@@ -5,19 +5,25 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ): Promise<void> {
-  // Reconstruct the full path with /api prefix for Express routing
-  // Vercel strips /api from req.url, so we add it back for Express to match its routes
-  const pathWithApi = `/api${req.url.split('?')[0]}`;
+  const expressReq = req as any;
+  const expressRes = res as any;
 
-  // Reconstruct full URL for Express
-  req.url = pathWithApi;
+  // Reconstruct the full path with /api prefix for Express routing.
+  // Vercel strips /api from req.url before calling the function.
+  const originalUrl = req.url || '/';
+  expressReq.url = `/api${originalUrl.split('?')[0]}`;
 
-  // Route to Express app
+  // Route to the existing Express app without altering the API logic in server.ts.
   return new Promise<void>((resolve, reject) => {
-    app(req, res);
+    app(expressReq, expressRes, (err?: unknown) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve();
+    });
 
-    // Ensure promise resolves when response is finished
-    res.on('finish', () => resolve());
-    res.on('error', reject);
+    expressRes.on('finish', () => resolve());
+    expressRes.on('close', () => resolve());
   });
 }
