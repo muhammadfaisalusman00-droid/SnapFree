@@ -1,0 +1,6 @@
+{
+  "name": "SnapFree",
+  "description": "SnapFree is a fast, free TikTok video downloader to save TikTok videos and photos in HD with no watermark. Download your favorite clips online without hassle.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

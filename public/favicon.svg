@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="16" fill="#000C3C"/>
+  <circle cx="48" cy="16" r="6" fill="#FDBF2D"/>
+  <!-- Download arrow / play emblem -->
+  <path d="M22 28L32 38L42 28" stroke="#FDBF2D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="32" y1="16" x2="32" y2="36" stroke="#FDBF2D" stroke-width="5" stroke-linecap="round"/>
+  <path d="M18 44H46" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+</svg>
